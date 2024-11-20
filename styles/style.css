@@ -13,11 +13,13 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+
+/* Стили для тела страницы  */
+
 .page {
   color: var(--accent-color);
   font-family: var(--main-font);
   background-color: var(--background-color);
-
   background-image: var(--background-gradient, none);
   background-size: cover;
   background-attachment: fixed;
@@ -26,37 +28,38 @@
   font-variation-settings: "wght" var(--article-content-text-weight);
 }
 
+/* Стили для заголовка */
+
 .header {
-  max-width: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
   margin-inline: auto;
   margin-block: 100px;
   border: 2px solid var(--accent-color, #000000);
   padding-block-start: clamp(7.5rem, 7.148rem + 1.5vw, 8.5rem);
   padding-block-end: 20px;
   background-color: var(--background-color);
+  max-inline-size: var(--content-width);
 }
+
+/* Общие стили для текста в заголовке */
 
 .header__textlogo {
   margin-inline: clamp(0.875rem, -1.469rem + 10vw, 7.531rem);
   font-family: var(--accent-font);
   font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .header__title {
-  display: block;
-  margin-bottom: 20px;
-  font-family: var(--accent-font);
+  margin-block-end: 20px;
   font-size: clamp(3.063rem, 2.71rem + 1.5vw, 4.063rem);
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .header__text {
   font-size: clamp(0.875rem, 0.677rem + 0.85vw, 1.438rem);
-  text-align: center;
-  text-transform: uppercase;
 }
 
+/* Стили меню в заголовке */
 .header__theme-menu {
   margin-inline-start: clamp(9.625rem, 6.082rem + 15.12vw, 19.688rem);
   margin-inline-end: clamp(8.313rem, 4.703rem + 15.4vw, 18.563rem);
@@ -70,9 +73,9 @@
   align-content: center;
   gap: 12px;
 }
+
 .theme-menu__item {
   position: relative;
-  align-self: flex-start;
   opacity: 100%;
   font-family: var(--accent-font);
   font-size: 14px;
@@ -90,6 +93,9 @@
   transition: opacity 300ms ease;
   pointer-events: none;
 }
+
+/* псевдоэлемент треугольник для меню с анимацией*/
+
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
@@ -110,52 +116,60 @@
   opacity: 60%;
 }
 
+/* Псевдоэлемнт для заливки кнопки */
+
 .theme-menu__button::after {
   content: "";
   inset: 0;
   display: block;
-  width: 100%;
-  height: 2px;
-  margin-top: 1px;
+  margin-block-start: 1px;
   background-color: currentColor;
   transition: transform 0.3s ease;
   transform: scaleX(0);
   transform-origin: left;
+  inline-size: 100%;
+  block-size: 2px;
 }
 
 .theme-menu__button:focus-visible::after {
   transform: scaleX(1);
 }
 
-main {
-  max-width: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
+/* Стили основной страницы  */
+
+.main__content {
   margin-inline: auto;
+  max-inline-size: var(--content-width);
 }
+
 .article {
   margin-block-end: 50px;
   border: 2px solid var(--accent-color, #000000);
   background-color: var(--background-color);
 }
 
+/* Заголовок карточки */
+
 .article__title {
-  border-bottom: 2px solid var(--accent-color, #000000);
+  border-block-end: 2px solid var(--accent-color, #000000);
   padding-inline-start: 10px;
   padding-inline-end: 10px;
   padding-block: 3px;
   font-size: 18px;
   line-height: 24.88px;
-  text-align: left;
-  background-color: var(--background-color);
   font-variation-settings: "wght" var(--article-head-text-weight);
 }
 
 .article__image-wrapper {
   position: relative;
 }
+
+/* Изображения в карточках и фильтры к ним*/
+
 .article__image {
   display: block;
-  object-fit: cover;
-  object-position: right;
+  /* object-fit: cover;
+  object-position: right; */
   inline-size: 100%;
   aspect-ratio: 1 / 1;
 }
@@ -192,6 +206,8 @@ main {
   filter: hue-rotate(95deg) contrast(0.6) saturate(1.6) blur(2px);
 }
 
+/* Лейбл на картинках */
+
 .article__label {
   position: absolute;
   top: 25px;
@@ -213,16 +229,18 @@ main {
     text-stroke: 1px var(--background-color);
   }
 }
+
 .article__content {
   display: flex;
   flex-direction: column;
   gap: 27px;
-  border-top: 2px solid var(--accent-color, #000000);
+  border-block-start: 2px solid var(--accent-color);
   padding: 25px;
   font-size: 18px;
   line-height: 21px;
-  background-color: var(--background-color);
 }
+
+/* Блок кнопок на карточке */
 
 .article__content-buttons {
   display: flex;
@@ -231,11 +249,14 @@ main {
   margin-inline-end: 25px;
   margin-block-end: 25px;
 }
+
+/* Кнопка-сердечко */
+
 .card__icon-button {
-  height: 38px;
   border: 2px solid transparent;
-  padding: 0;
+  padding: 2px 2px 0 0;
   background-color: transparent;
+  block-size: 38px;
 }
 
 .card__icon-button:focus {
@@ -248,14 +269,19 @@ main {
   transition: border-color 0.3s ease;
 }
 
-.card__like-button {
+.button-animated {
   position: relative;
-  width: 130px;
-  height: 38px;
-  border: 2px solid var(--accent-color, #000000);
+  border: 2px solid var(--accent-color);
+  background-color: transparent;
+}
+
+/* Кнопка - Like */
+
+.card__like-button {
   padding: 9px 17px 9px 17px;
   font-family: var(--accent-font);
-  background-color: transparent;
+  inline-size: 130px;
+  block-size: 38px;
 }
 
 .card__like-button:after {
@@ -263,12 +289,12 @@ main {
   position: absolute;
   inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--accent-color);
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .card__like-button:hover::after {
@@ -276,17 +302,18 @@ main {
 }
 
 .card__like-button:focus,
-.footer__button:focus {
+.save__button:focus {
   outline: none;
 }
 
 .card__like-button:focus-visible,
-.footer__button:focus-visible {
+.save__button:focus-visible {
   box-shadow: 2px 2px 0 0 var(--accent-color);
   outline: none;
   transition: box-shadow 300ms ease;
 }
 
+/* Общие стили для текста на кнопках */
 .button__text {
   position: relative;
   z-index: 2;
@@ -299,8 +326,7 @@ main {
   mix-blend-mode: difference;
 }
 
-
-
+/* Блок с кнопкой сохранить воспоминания */
 .save {
   margin-inline: clamp(2.156rem, -1.057rem + 13.709vw, 11.281rem);
   margin-block-end: clamp(6.25rem, 6.184rem + 0.28vw, 6.438rem);
@@ -308,14 +334,11 @@ main {
 }
 
 .save__button {
-  position: relative;
-  width: 100%;
-  border: 2px solid var(--accent-color, #000000);
   padding-inline-start: 10px;
   padding-inline-end: 10px;
   padding-block: 14px;
   line-height: 15px;
-  background-color: transparent;
+  inline-size: 100%;
 }
 
 .save__button:after {
@@ -323,12 +346,12 @@ main {
   position: absolute;
   inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--accent-color);
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .save__button:hover::after {
@@ -338,12 +361,14 @@ main {
 .save__button-floppy {
   position: relative;
   z-index: 2;
-  width: 21px;
-  height: 21px;
-  margin-right: 4px;
+  margin-inline-end: 4px;
   color: var(--fill-color);
+  inline-size: 21px;
+  block-size: 21px;
   mix-blend-mode: difference;
 }
+
+/* Стили диалогового окна */
 
 .dialog {
   border: 2px solid currentColor;
@@ -372,27 +397,24 @@ main {
 }
 
 .dialog__paragraph {
-  font-family: var(--accent-font, "PressStart2P", fantasy);
+  font-family: var(--accent-font);
   font-size: 14px;
   line-height: 21px;
   text-transform: uppercase;
 }
 
 .dialog__icon {
-  width: 39px;
-  height: 39px;
   color: var(--fill-color);
+  inline-size: 39px;
+  block-size: 39px;
   mix-blend-mode: difference;
 }
 
 .dialog__button {
-  position: relative;
   height: 38px;
-  border: 2px solid var(--accent-color);
   padding-inline: clamp(7rem, 6.56rem + 1.88vw, 8.25rem);
   padding-block: 10px;
   text-transform: uppercase;
-  background-color: transparent;
   inline-size: 100%;
 }
 
@@ -401,12 +423,12 @@ main {
   position: absolute;
   inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--accent-color);
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .dialog__button:hover::after {
@@ -423,11 +445,14 @@ main {
   transition: box-shadow 300ms ease;
 }
 
+/* Медиа-запросы для мобильного устройства */
+
 @media (width <= 375px) {
   .header {
     margin-inline: 0;
     inline-size: 100%;
   }
+
   .article__title {
     line-height: 24.5px;
   }
@@ -439,13 +464,18 @@ main {
   .save__button {
     block-size: 84px;
   }
+
   .save__button-floppy {
     display: block;
-    width: 28px;
-    height: 28px;
     margin: auto;
     margin-block-start: 1px;
     margin-block-end: 6px;
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+  .card__icon-button {
+    padding-block-start: 0;
   }
 
   .dialog__button {
