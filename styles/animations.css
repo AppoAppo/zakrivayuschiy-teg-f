@@ -64,10 +64,6 @@
   transition: fill 300ms linear;
 }
 
-.card__icon-button:hover .main-body {
-  transition: fill 300ms linear 50ms;
-}
-
 .like-icon.is-liked .core {
   fill: red;
   transition: fill 300ms linear;

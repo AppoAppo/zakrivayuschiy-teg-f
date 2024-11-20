@@ -86,8 +86,8 @@
   line-height: 12px;
   text-transform: uppercase;
   background-color: transparent;
-  cursor: pointer;
   transition: opacity 300ms ease;
+  cursor: pointer;
 }
 
 .theme-menu__button:disabled {
@@ -256,9 +256,9 @@
   border: 2px solid transparent;
   padding: 2px 2px 0 0;
   background-color: transparent;
-  block-size: 38px;
-  cursor: pointer;
   transition: border-color 0.3s ease;
+  cursor: pointer;
+  block-size: 38px;
 }
 
 .card__icon-button:focus {
@@ -275,9 +275,9 @@
 .button-animated {
   position: relative;
   border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
   background-color: transparent;
   cursor: pointer;
-  font-family: var(--accent-font);
 }
 
 .button-animated:after {
@@ -315,7 +315,6 @@
   block-size: 38px;
 }
 
-
 /* Общие стили для текста на кнопках */
 .button__text {
   position: relative;
@@ -340,12 +339,8 @@
   display: grid;
   grid-template-columns: min-content 1fr;
   align-items: center;
-  justify-items: center;
   gap: 4px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px; */
+  padding-inline-start: 20px;
   padding-block: 16px;
   line-height: 15px;
   inline-size: 100%;
@@ -428,9 +423,9 @@
   }
 
   .save__button {
-    block-size: 84px;
     display: block;
     padding: 0;
+    block-size: 84px;
   }
 
   .save__button-floppy {
