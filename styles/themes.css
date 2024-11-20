@@ -4,3 +4,70 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-dark {
+  --article-head-text-weight: 785;
+  --article-content-text-weight: 465;
+  --background-color: #000;
+  --accent-color: #00cc14;
+  --fill-color: #00cc14;
+  --contour-color: var(--accent-color);
+  --background-gradient: repeating-linear-gradient(
+      90deg,
+      #000 0 2px,
+      rgb(0 0 0 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
+    linear-gradient(180deg, #007f0c 0%, #004306 100%);
+}
+
+:root.theme-light {
+  --article-head-text-weight: 700;
+  --article-content-text-weight: 400;
+  --background-color: #fff;
+  --accent-color: #000;
+  --fill-color: #fff;
+  --contour-color: var(--accent-color);
+  --background-gradient: repeating-linear-gradient(
+      90deg,
+      #d3d3d3 0 2px,
+      rgb(0 0 0 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --article-head-text-weight: 700;
+    --article-content-text-weight: 400;
+    --background-color: #fff;
+    --accent-color: #000;
+    --fill-color: #fff;
+    --contour-color: var(--accent-color);
+    --background-gradient: repeating-linear-gradient(
+        90deg,
+        #d3d3d3 0 2px,
+        rgb(0 0 0 / 0) 2px 4px
+      ),
+      repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
+      linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --article-head-text-weight: 785;
+    --article-content-text-weight: 465;
+    --background-color: #000;
+    --accent-color: #00cc14;
+    --fill-color: #00cc14;
+    --contour-color: var(--accent-color);
+    --background-gradient: repeating-linear-gradient(
+        90deg,
+        #000 0 2px,
+        rgb(0 0 0 / 0) 2px 4px
+      ),
+      repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
+      linear-gradient(180deg, #007f0c 0%, #004306 100%);
+  }
+}
