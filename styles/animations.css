@@ -35,28 +35,37 @@
   transition: fill 100ms linear;
 }
 .main-body {
+  fill: transparent;
   transition: fill 300ms linear;
 }
 
 .core {
+  fill: transparent;
   transition: fill 300ms linear 30ms;
 }
 
-.card__icon-button:hover .main-body,
-.card__icon-button:hover .core {
+.card__icon-button:hover .main-body {
   fill: var(--accent-color);
-  transition-delay: 0;
+  transition: fill 300ms linear 50ms;
 }
 
-.card__icon-button:active .main-body,
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill 300ms linear;
+}
+
+.card__icon-button:active .main-body {
+  fill: red;
+  transition: fill 300ms linear 50ms;
+}
+
 .card__icon-button:active .core {
   fill: red;
-  transition-delay: 0;
+  transition: fill 300ms linear;
 }
 
 .card__icon-button:hover .main-body {
   transition: fill 300ms linear 50ms;
-  transition-delay: 0;
 }
 
 .like-icon.is-liked .core {
@@ -76,7 +85,7 @@
 
 .like-icon.is-liked .heart {
   transform-origin: center;
-  animation: heartexplosion ease-in 150ms 1 alternate 100ms;
+  animation: heartexplosion ease-in 300ms 1 alternate 100ms;
 }
 
 /* Анимация взрыва */
