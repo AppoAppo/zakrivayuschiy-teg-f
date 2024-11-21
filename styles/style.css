@@ -278,6 +278,7 @@
   font-family: var(--accent-font);
   background-color: transparent;
   cursor: pointer;
+  transition: box-shadow 300ms ease;
 }
 
 .button-animated:after {
@@ -304,7 +305,6 @@
 .button-animated:focus-visible {
   box-shadow: 2px 2px 0 0 var(--accent-color);
   outline: none;
-  transition: box-shadow 300ms ease;
 }
 
 /* Кнопка - Like */
@@ -339,11 +339,13 @@
   display: grid;
   grid-template-columns: min-content 1fr;
   align-items: center;
-  gap: 4px;
-  padding-inline-start: 20px;
+  gap: clamp(0rem, -0.088rem + 0.38vw, 0.25rem);
+  padding-inline-start: clamp(0.313rem, -0.018rem + 1.41vw, 1.25rem);
+  padding-inline-end: 0;
   padding-block: 16px;
   line-height: 15px;
   inline-size: 100%;
+  block-size: 55px;
 }
 
 .save__button-floppy {
@@ -352,6 +354,7 @@
   margin-inline-end: 4px;
   color: var(--fill-color);
   inline-size: 21px;
+  /* inline-size: clamp(1.313rem, 5.673rem + -5.54vw, 4.375rem); не сработало, блок рос, но содержимое было нецентрировано*/
   block-size: 21px;
   mix-blend-mode: difference;
 }
